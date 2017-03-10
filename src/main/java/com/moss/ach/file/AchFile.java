@@ -37,10 +37,10 @@
  */
 package com.moss.ach.file;
 
+import com.moss.usbanknumbers.RoutingNumber;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.moss.usbanknumbers.RoutingNumber;
 
 public class AchFile {
 
@@ -49,7 +49,7 @@ public class AchFile {
 	FileIdModifier fileIdModifier;
 	RoutingNumber immediateDestination;
 	String immediateDestinationName;
-	RoutingNumber immediateOrigin;
+	String immediateOrigin;
 	String immediateOriginName;
 	String referenceCode;
 	
@@ -95,11 +95,11 @@ public class AchFile {
 		this.immediateDestinationName = immediateDestinationName;
 	}
 
-	public RoutingNumber getImmediateOrigin() {
+	public String getImmediateOrigin() {
 		return immediateOrigin;
 	}
 
-	public void setImmediateOrigin(RoutingNumber immediateOrigin) {
+	public void setImmediateOrigin(String immediateOrigin) {
 		this.immediateOrigin = immediateOrigin;
 	}
 

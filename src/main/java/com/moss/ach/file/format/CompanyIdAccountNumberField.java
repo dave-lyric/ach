@@ -37,4 +37,13 @@
  */
 package com.moss.ach.file.format;
 
-class ImmediateOriginField extends CompanyIdAccountNumberField {}
+class CompanyIdAccountNumberField extends AbstractStringField {
+	
+	public int getLength() {
+		return 10;
+	}
+
+	public RequirementType getRequirementType() {
+		return RequirementType.REQUIRED;
+	}
+}

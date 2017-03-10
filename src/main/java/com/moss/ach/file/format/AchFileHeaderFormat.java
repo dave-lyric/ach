@@ -37,11 +37,7 @@
  */
 package com.moss.ach.file.format;
 
-import com.moss.ach.file.FileIdModifier;
-import com.moss.ach.file.PriorityCode;
-import com.moss.ach.file.RecordType;
-import com.moss.ach.file.SimpleDate;
-import com.moss.ach.file.SimpleTime;
+import com.moss.ach.file.*;
 import com.moss.usbanknumbers.RoutingNumber;
 
 
@@ -66,8 +62,12 @@ public class AchFileHeaderFormat {
 	 * a blank in the first position, followed by the four digit Federal Reserve 
 	 * Routing Symbol, the four digit ABA Insitution Identifier, and the Check 
 	 * Digit (bTTTTAAAAC).
+	 *
+	 * UPDATE: We are using a customer ID account instead of a routing number for this field.
+	 * Technically, this is not a routing number, but the bank uses it for identification.
 	 */
-	public RoutingNumber immediateOrigin;
+	//public RoutingNumber immediateOrigin;
+	public String immediateOrigin;
 	
 	/**
 	 * The File Creation Date is expressed in a "YYMMDD" format. The File Creation 

@@ -37,31 +37,12 @@
  */
 package com.moss.ach.file;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.StringReader;
-import java.io.StringWriter;
-
+import com.moss.usbanknumbers.RoutingNumber;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.moss.ach.file.AchBatch;
-import com.moss.ach.file.AchFile;
-import com.moss.ach.file.AchFileReader;
-import com.moss.ach.file.AchFileWriter;
-import com.moss.ach.file.FileIdModifier;
-import com.moss.ach.file.OriginatorStatusCode;
-import com.moss.ach.file.PPDEntry;
-import com.moss.ach.file.RCKEntry;
-import com.moss.ach.file.ServiceClassCode;
-import com.moss.ach.file.SimpleDate;
-import com.moss.ach.file.SimpleTime;
-import com.moss.ach.file.StandardEntryClassCode;
-import com.moss.ach.file.TraceNumber;
-import com.moss.ach.file.TransactionCode;
-import com.moss.usbanknumbers.RoutingNumber;
+import java.io.*;
 
 public class TestLegacyRoundTrip {
 	
@@ -125,7 +106,7 @@ public class TestLegacyRoundTrip {
 		file.fileIdModifier = new FileIdModifier('A');
 		file.immediateDestination = new RoutingNumber("076401251");
 		file.immediateDestinationName = "achdestname";
-		file.immediateOrigin = new RoutingNumber("076401251");
+		file.immediateOrigin = "1563456789";
 		file.immediateOriginName = "companyname";
 		file.referenceCode = null;
 		
@@ -191,7 +172,7 @@ public class TestLegacyRoundTrip {
 		file.fileIdModifier = new FileIdModifier('A');
 		file.immediateDestination = new RoutingNumber("076401251");
 		file.immediateDestinationName = "achdestname";
-		file.immediateOrigin = new RoutingNumber("076401251");
+		file.immediateOrigin = "1563456789";
 		file.immediateOriginName = "companyname";
 		file.referenceCode = null;
 		

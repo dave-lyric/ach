@@ -37,29 +37,15 @@
  */
 package com.moss.ach.file.format;
 
-import java.io.Reader;
-import java.io.StringReader;
-import java.io.StringWriter;
-
+import com.moss.ach.file.*;
+import com.moss.usbanknumbers.RoutingNumber;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.moss.ach.file.FileIdModifier;
-import com.moss.ach.file.OriginatorStatusCode;
-import com.moss.ach.file.PriorityCode;
-import com.moss.ach.file.RecordType;
-import com.moss.ach.file.ServiceClassCode;
-import com.moss.ach.file.SimpleDate;
-import com.moss.ach.file.SimpleTime;
-import com.moss.ach.file.StandardEntryClassCode;
-import com.moss.ach.file.TraceNumber;
-import com.moss.ach.file.TransactionCode;
-import com.moss.ach.file.format.AchFileFormat;
-import com.moss.ach.file.format.AchFileFormatReader;
-import com.moss.ach.file.format.AchFileFormatWriter;
-import com.moss.ach.file.format.RCKEntryFormat;
-import com.moss.usbanknumbers.RoutingNumber;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.StringWriter;
 
 public class TestFormatRoundTrip {
 	
@@ -83,7 +69,7 @@ public class TestFormatRoundTrip {
 				RECORD_TYPE_CODE = 				"1",
 				PRIORITY_CODE = 				"01",
 				IMMEDIATE_DESTINATION = 		" 076401251",
-				IMMEDIATE_ORIGIN = 				" 076401251",
+				IMMEDIATE_ORIGIN = 				"1563456789",
 				FILE_CREATION_DATE = 			"080725",
 				FILE_CREATION_TIME = 			"1650",
 				FILE_ID_MODIFIER = 				"0",
@@ -258,7 +244,7 @@ public class TestFormatRoundTrip {
 		Assert.assertEquals(RecordType.FILE_HEADER, achFile.header.recordType);
 		Assert.assertEquals(PriorityCode.DEFAULT, achFile.header.priorityCode);
 		Assert.assertEquals(new RoutingNumber("076401251"), achFile.header.immediateDestination);
-		Assert.assertEquals(new RoutingNumber("076401251"), achFile.header.immediateOrigin);
+		Assert.assertEquals("1563456789", achFile.header.immediateOrigin);
 		Assert.assertEquals(new SimpleDate(8, 7, 25), achFile.header.fileCreationDate);
 		Assert.assertEquals(new SimpleTime(16, 50), achFile.header.fileCreationTime);
 		Assert.assertEquals(new FileIdModifier('0'), achFile.header.fileIdModifier);

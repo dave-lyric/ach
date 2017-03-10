@@ -37,36 +37,17 @@
  */
 package com.moss.ach.file.format;
 
+import com.moss.ach.file.*;
+import com.moss.usbanknumbers.RoutingNumber;
+import org.apache.log4j.BasicConfigurator;
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.ArrayList;
-
-import org.apache.log4j.BasicConfigurator;
-import org.junit.Assert;
-import org.junit.Test;
-
-import com.moss.ach.file.FileIdModifier;
-import com.moss.ach.file.OriginatorStatusCode;
-import com.moss.ach.file.PriorityCode;
-import com.moss.ach.file.RecordType;
-import com.moss.ach.file.ServiceClassCode;
-import com.moss.ach.file.SimpleDate;
-import com.moss.ach.file.SimpleTime;
-import com.moss.ach.file.StandardEntryClassCode;
-import com.moss.ach.file.TraceNumber;
-import com.moss.ach.file.TransactionCode;
-import com.moss.ach.file.format.AchBatchControlFormat;
-import com.moss.ach.file.format.AchBatchFormat;
-import com.moss.ach.file.format.AchBatchHeaderFormat;
-import com.moss.ach.file.format.AchEntryDetailFormat;
-import com.moss.ach.file.format.AchFileControlFormat;
-import com.moss.ach.file.format.AchFileFormat;
-import com.moss.ach.file.format.AchFileFormatWriter;
-import com.moss.ach.file.format.AchFileHeaderFormat;
-import com.moss.ach.file.format.RCKEntryFormat;
-import com.moss.usbanknumbers.RoutingNumber;
 
 /**
  * Demonstrates the library's ability to generate an ach file that exactly matches the
@@ -108,7 +89,7 @@ public class TestReplicateLegacyFile {
 		file.header.fileIdModifier = new FileIdModifier('A');
 		file.header.immediateDestination = new RoutingNumber("076401251");
 		file.header.immediateDestinationName = "achdestname";
-		file.header.immediateOrigin = new RoutingNumber("076401251");
+		file.header.immediateOrigin = "1563456789";
 		file.header.immediateOriginName = "companyname";
 		file.header.referenceCode = null;
 		file.header.blockingFactor = BLOCKING_FACTOR;

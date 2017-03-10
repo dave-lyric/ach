@@ -116,7 +116,7 @@ public class AchFileFormatReader {
 		achFile.header.recordType = RecordType.FILE_HEADER;
 		achFile.header.priorityCode = reader.read(PriorityCodeField.class);
 		achFile.header.immediateDestination = reader.read(ImmediateDestinationField.class);
-		achFile.header.immediateOrigin = reader.read(ImmediateOriginField.class);
+		achFile.header.immediateOrigin = reader.read(CompanyIdAccountNumberField.class);
 		achFile.header.fileCreationDate = reader.read(FileCreationDateField.class);
 		achFile.header.fileCreationTime = reader.read(FileCreationTimeField.class);
 		achFile.header.fileIdModifier = reader.read(FileIdModifierField.class);
